@@ -1,0 +1,44 @@
+<h4>Escriba para comparar</h4>
+
+<div style="display: flex;  flex-direction: row; justify-content: space-evenly">
+    
+  <!-- Select donde escogemos el tipo de fuente
+  Un ngFor para moverte entre los valores del array que se encuentran en el component
+  un ng-Change para llamar a la función cada vez que escogemos un valor
+  el ngModel necesario para hacerle el set a la variable, sin ngModel no cambiaría nada
+  -->
+    <mat-form-field appearance="fill">
+        <mat-label>Elige una fuente</mat-label>
+        <mat-select name="miselect" [(ngModel)]="fuente">
+          <mat-option  *ngFor="let font of fuentes" [value]="font" ng-change="cambiarFuente(font)">
+            {{font}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>       
+</div>
+
+ <!-- Select donde escogemos el color
+  Un ngFor para moverte entre los valores del array que se encuentran en el component
+  un ng-Change para llamar a la función cada vez que escogemos un valor
+  el ngModel necesario para hacerle el set a la variable, sin ngModel no cambiaría nada
+  -->
+
+<div style="display: flex;  flex-direction: row; justify-content: space-evenly">
+<mat-form-field appearance="fill"> 
+<mat-label>Elige un color</mat-label>
+<mat-select name="miselect" [(ngModel)]="color">
+  <mat-option  *ngFor="let color of colores" [value]="color" ng-change="cambiarColor(color)">
+    {{color}}
+  </mat-option>
+</mat-select>
+</mat-form-field>
+</div>
+
+<!--
+ Textarea donde tenemos las dos variables para color y fuente
+ Cada vez que se hace un input se llama a la función cambio de texto para
+ cambiar la variable mensaje que envia el servicio que creamos en Componente
+-->
+Escribe aquí <br>
+<textarea id="t1" (input)="cambioTexto($event.target.value)" [(ngModel)]="mensaje" [style.font-family]="fuente" [style.color]="color" style="width: 300px; height: 200px;">
+</textarea>

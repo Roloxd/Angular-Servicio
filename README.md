@@ -22,12 +22,15 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Antes de arrancar
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+npm install --save-dev @angular-devkit/build-angular
 
+## Una vez instlado el paquete anterior
 
----------------------------------------------------------------------
+ng serve
+
+## Pequeña Memoria
 
 El código está debidamente comentado, pero comentaré en lineas generales lo que he hecho. Primero he seguido el turorial del video para crear el servicio. El servicio tienes dos variables, Subject y Observable. La variable Subject nos permite enviar mensajes a múltiples observers. Mediante la variable Observable, los componentes se pueden suscribir al servicio. La función enviarMensaje(mensaje:string) es la que se encargará de enviar mensaje a todos los componentes suscritos al servicio.
 
